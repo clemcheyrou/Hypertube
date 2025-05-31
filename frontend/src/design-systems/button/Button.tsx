@@ -7,11 +7,11 @@ type ButtonProps = {
     className?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const base = 'inline-flex items-center justify-center font-semibold';
+const base = 'inline-flex items-center justify-center';
 
 const variants = {
     primary: 'bg-primary text-white hover:bg-secondary-light',
-    secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300',
+    secondary: 'bg-white border text-black hover:text-white hover:bg-black',
 };
 
 const sizes = {

@@ -1,1 +1,23 @@
 Mockup: https://www.figma.com/design/Kvgwt1XZwUdZhMpv6vsLYS/HYPERTUBE?node-id=0-1&t=lVoo7QCmv53GBkB3-1
+
+## Install & Setup Vite + React + Typescript + Tailwind CSS 3
+- npm create vite@latest
+- npm install
+- npm install -D tailwindcss@^3.4.17 postcss autoprefixer
+- npx tailwindcss init -p
+- edit tailwing.config.js and css file
+
+https://larainfo.com/blogs/install-setup-vite-react-typescript-tailwind-css-3/
+https://www.alsacreations.com/article/lire/1903-Qu-est-ce-que-Vite.html
+https://medium.com/@amirakhaled2027/typescript-vs-typescript-swc-in-vite-understanding-the-differences-7240e7309ca7
+
+## Create prettier.config.js file
+- npm install --save-dev prettier
+- npx prettier --check .
+- npx prettier --write .
+
+
+## Create design sytem with tailwind and storybook
+- https://www.hexa-web.fr/blog/integrer-un-design-system-avec-reactjs-nextjs-tailwindcss-et-cva
+
+## Automatiser les tests

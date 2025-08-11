@@ -1,8 +1,27 @@
-import { pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
+import {
+  pgTable,
+  timestamp,
+  uuid,
+  varchar,
+  text,
+} from 'drizzle-orm/pg-core'
+
+const timestamps = {
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at')
+    .defaultNow()
+    .$onUpdate(() => new Date()),
+}
+
+export const posts = pgTable('posts', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  title: varchar('title', { length: 256 }).notNull(),
+  content: text('text').notNull(),
+  ...timestamps,
+})
 
 export const users = pgTable('users', {
-  id: serial('id').primaryKey(),
-  email: text('email').notNull().unique(),
-  password: text('password').notNull(),
-  createdAt: timestamp('created_at').defaultNow(),
+  id: uuid('id').primaryKey().defaultRandom(),
+  username: varchar('username', { length: 255 }).notNull().unique(),
+  password: varchar('password', { length: 255 }).notNull(),
 });

@@ -1,14 +1,14 @@
-import type { Config } from 'drizzle-kit';
+import dotenv from 'dotenv'
+import { defineConfig } from 'drizzle-kit'
 
-export default {
-  schema: './src/db/schema.ts',
+dotenv.config()
+
+export default defineConfig({
   out: './src/db/migrations',
-  dialect: 'postgresql' as const,
+  schema: './src/db/schema.ts',
+  breakpoints: false,
+  dialect: 'postgresql',
   dbCredentials: {
-    host: 'localhost',
-    port: 5432,
-    user: 'postgres',
-    password: 'postgres',
-    database: 'hypertube',
+    url: process.env.DATABASE_URL as string,
   },
-} satisfies Config;
+})

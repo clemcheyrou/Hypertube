@@ -1,0 +1,16 @@
+import { createServer } from './server';
+
+const main = async () => {
+  const fastify = await createServer();
+  const port = Number(fastify.config.PORT)
+
+  try {
+    fastify.listen({ port }, () => {
+      fastify.log.info(`Listening on ${port}`);
+    });
+  } catch (error) {
+    process.exit(1);
+  }
+};
+
+main();

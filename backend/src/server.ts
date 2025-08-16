@@ -1,5 +1,6 @@
 import Fastify from 'fastify';
 import { createLogger } from 'src/utils/logger';
+import cors from '@fastify/cors';
 import env from '@fastify/env';
 import fastifyCookie from '@fastify/cookie';
 import fastifySession from '@fastify/session';
@@ -14,6 +15,11 @@ export { logger };
 export const createServer = async () => {
     const fastify = Fastify({ loggerInstance: logger });
     await fastify.register(env, options).after();
+
+    await fastify.register(cors, {
+        origin: 'http://localhost:5173',
+        credentials: true,
+    });
 
     fastify.register(authRouter, { prefix: 'api/auth' })
     fastify.register(usersRouter, { prefix: 'api/users' })

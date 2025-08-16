@@ -3,11 +3,11 @@ import { db } from '.';
 import { users } from './schema';
 
 const seed = async () => {
-  const hashedPassword = await bcrypt.hash('password', 10);
+  const hashedPassword = await bcrypt.hash('password2', 10);
 
   await db.insert(users).values({
     id: crypto.randomUUID(),
-    username: 'testuser',
+    username: 'testuser2',
     password: hashedPassword,
   });
 

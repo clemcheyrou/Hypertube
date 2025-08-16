@@ -7,14 +7,14 @@
     "build": "tsc -p tsconfig.json && tsc-alias",
     "start": "node ./dist/main.js",
     "dev": "tsx watch src/main.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "check-format": "prettier --check \"src/**/*.ts\"",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "seed": "tsx src/db/seed.ts"
+    "seed": "tsx src/db/seed.ts",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
   "type": "module",
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
+    "@fastify/cors": "^11.1.0",
     "@fastify/env": "^5.0.2",
     "@fastify/session": "^11.1.0",
     "bcrypt": "^6.0.0",
@@ -45,7 +46,8 @@
     "eslint-plugin-prettier": "^5.5.3",
     "prettier": "^3.6.2",
     "tsx": "^4.20.3",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   },
   "packageManager": "yarn@4.9.1+sha512.f95ce356460e05be48d66401c1ae64ef84d163dd689964962c6888a9810865e39097a5e9de748876c2e0bf89b232d583c33982773e9903ae7a76257270986538"
 }

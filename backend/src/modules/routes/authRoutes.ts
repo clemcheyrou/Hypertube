@@ -3,6 +3,6 @@ import { loginController, logoutController, registerController } from '../contro
 
 export const authRouter = (fastify: FastifyInstance) => {
   fastify.post('/login', loginController);
-  fastify.get('/logout', logoutController);
+  fastify.post('/logout', logoutController);
   fastify.post('/register', registerController);
 }

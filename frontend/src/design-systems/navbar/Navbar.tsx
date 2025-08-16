@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
 type NavbarProps = {
-    links: { label: string; href: string }[];
+    links: {
+        onClick: any; label: string; href: string 
+    }[];
     className?: string;
 };
 
@@ -38,7 +40,16 @@ export const Navbar: React.FC<NavbarProps> = ({ links, className = '' }) => {
                 <ul className="hidden md:flex space-x-6">
                     {links.map((link) => (
                         <li key={link.href}>
-                            <a href={link.href} className="hover:underline">
+                            <a
+                                href={link.href}
+                                className="hover:underline"
+                                onClick={(e) => {
+                                    if (link.onClick) {
+                                        e.preventDefault();
+                                        link.onClick();
+                                    }
+                                }}
+                            >
                                 {link.label}
                             </a>
                         </li>
@@ -54,7 +65,13 @@ export const Navbar: React.FC<NavbarProps> = ({ links, className = '' }) => {
                             <a
                                 href={link.href}
                                 className="block hover:underline py-2"
-                                onClick={() => setIsOpen(false)}
+                                onClick={(e) => {
+                                    if (link.onClick) {
+                                        e.preventDefault();
+                                        link.onClick();
+                                    }
+                                    setIsOpen(false);
+                                }}
                             >
                                 {link.label}
                             </a>

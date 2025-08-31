@@ -57,7 +57,13 @@ export async function logoutController(request: FastifyRequest, reply: FastifyRe
 }
 
 export async function registerController(request: FastifyRequest, reply: FastifyReply) {
-  const { username, password } = request.body as { username: string; password: string };
+  const { username, password, email, firstName, lastName } = request.body as {
+    username: string;
+    password: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+  };
 
   try {
     // Check if user already exists
@@ -76,7 +82,10 @@ export async function registerController(request: FastifyRequest, reply: Fastify
     // Create new user
     const newUser = await createUser({
       username,
-      password: hashedPassword
+      password: hashedPassword,
+      email,
+      firstName,
+      lastName
     });
 
     // Auto login after registration

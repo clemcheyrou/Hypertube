@@ -15,6 +15,13 @@
       "when": 1754759406785,
       "tag": "0001_outstanding_domino",
       "breakpoints": false
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1756658462792,
+      "tag": "0002_daffy_ego",
+      "breakpoints": false
     }
   ]
 }

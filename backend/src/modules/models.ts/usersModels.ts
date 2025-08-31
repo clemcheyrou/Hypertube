@@ -3,12 +3,27 @@ import { eq } from 'drizzle-orm';
 import { db } from '../../db';
 import { users } from '../../db/schema';
 
-export async function createUser({ username, password }: { username: string; password: string }) {
+export async function createUser({
+  username,
+  password,
+  email,
+  firstName,
+  lastName
+}: {
+  username: string;
+  password: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+}) {
   return db
     .insert(users)
     .values({
       username,
-      password
+      password,
+      email,
+      firstName,
+      lastName
     })
     .returning()
     .then(res => res[0]);

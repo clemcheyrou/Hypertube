@@ -4,15 +4,15 @@ import { Navbar } from '../../design-systems/navbar/Navbar';
 import { VStack } from '../../design-systems/vstack/VStack';
 
 const navLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'Movies', href: '/movies' },
-    { label: 'Profile', href: '/profile' },
-    { label: 'Logout', href: '/logout' },
+    { label: 'Home', href: '/', onClick: () => {} },
+    { label: 'Movies', href: '/movies', onClick: () => {} },
+    { label: 'Profile', href: '/profile', onClick: () => {} },
+    { label: 'Logout', href: '/logout', onClick: () => {} },
 ];
 
 export const LandingPage = () => {
     return (
-        <VStack className="max-h-screen items-center justify-center p-12">
+        <VStack className="h-[80vh] items-center justify-center p-12 md:p-40">
             <HStack className="justify-between w-full mb-40">
                 <Navbar links={navLinks} className="w-full" />
             </HStack>
@@ -22,7 +22,7 @@ export const LandingPage = () => {
                     <h1 className="text-3xl">Watch anytime, anywhere</h1>
                 </VStack>
                 <VStack className="w-full items-center">
-                    <img src="src/assets/screen.png" alt="Description" className="mb-4 w-full" />
+                    <img src="src/assets/screen.png" alt="Description" className="mb-4 w-full h-[400px]" />
                     <VStack className="w-full">
                         <Button className="w-full" href="/login">
                             Sign-in
